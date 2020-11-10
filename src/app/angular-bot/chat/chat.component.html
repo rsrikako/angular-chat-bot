@@ -1,0 +1,20 @@
+<div class="row">
+	<h1 class="col-6 m-auto">Chat Bot</h1>
+	<button class="col-6 m-auto">Teach Me</button>
+</div>
+<div id="messages-area" class="messages-area">
+	<ng-container *ngFor="let message of messages">
+		<div class="message" [ngClass]="{ 'from': message.author === 'bot',
+  'to': message.author === 'user' }">
+			{{ message.content }}
+		</div>
+	</ng-container>
+</div>
+<div class="typing-section">
+	<label *ngIf="messages.length == 0; else dialogInfo" for="nameField">Your message</label>
+	<input [(ngModel)]="value" (keyup.enter)="sendMessage()" type="text">
+	<button class="float-right" (click)="sendMessage()">Send</button>
+</div>
+<!-- <ng-template #dialogInfo>
+	<span [className]="'float-right'">Total messages: {{messages.length}}</span>
+</ng-template> -->
