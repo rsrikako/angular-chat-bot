@@ -26,8 +26,14 @@ export class ChatComponent implements OnInit {
   }
 
   updateScroll() {
-    document.getElementById(
-      "messages-area"
-    ).scrollTop = document.getElementById("messages-area").scrollHeight;
+    try {
+      var element = document.getElementById("messages-area");
+      console.log("scroll", element.scrollHeight);
+      console.log("scroll init", element.scrollTop);
+      element.scrollTop = element.scrollHeight;
+      console.log("scroll end", element.scrollTop);
+    } catch (error) {
+      console.log("error", error);
+    }
   }
 }

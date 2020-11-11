@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row heading">
 	<h1 class="col-6 m-auto">Chat Bot</h1>
 	<button class="col-6 m-auto">Teach Me</button>
 </div>
@@ -11,10 +11,7 @@
 	</ng-container>
 </div>
 <div class="typing-section">
-	<label *ngIf="messages.length == 0; else dialogInfo" for="nameField">Your message</label>
+	<!-- <label *ngIf="messages.length == 0; else dialogInfo" for="nameField">Your message</label> -->
 	<input [(ngModel)]="value" (keyup.enter)="sendMessage()" type="text">
 	<button class="float-right" (click)="sendMessage()">Send</button>
 </div>
-<!-- <ng-template #dialogInfo>
-	<span [className]="'float-right'">Total messages: {{messages.length}}</span>
-</ng-template> -->
